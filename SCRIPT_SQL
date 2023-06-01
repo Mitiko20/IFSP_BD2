@@ -1,0 +1,314 @@
+--CRIAÇÃO DO BANCO DE DADOS
+CREATE DATABASE bd_Geografia;
+
+--SELEÇÃO DO BANCO DE DADOS
+USE bd_Geografia;
+
+--CRIAÇÃO DAS TABELAS
+CREATE TABLE País (
+id_pais int PRIMARY KEY,
+nome_pais varchar(255) NOT NULL,
+pib_tri float NOT NULL,
+moeda char(3) NOT NULL,
+continente varchar(255) NOT NULL
+);
+
+CREATE TABLE Capital (
+id_capital int PRIMARY KEY IDENTITY(0,1),
+nome_capital varchar(255) NOT NULL,
+fk_pais int REFERENCES País(id_pais) NOT NULL
+);
+
+CREATE TABLE Populacao (
+id_populacao int PRIMARY KEY IDENTITY(0,1),
+populacao float NOT NULL,
+fk_pais int REFERENCES País(id_pais) NOT NULL
+);
+
+CREATE TABLE IDH (
+id_idh int PRIMARY KEY IDENTITY(0,1),
+idh float NOT NULL,
+fk_pais int REFERENCES País(id_pais) NOT NULL
+);
+
+CREATE TABLE IndiceGini (
+id_gini int PRIMARY KEY IDENTITY(0,1),
+indiceGini float NOT NULL,
+fk_pais int REFERENCES País(id_pais) NOT NULL
+);
+
+--INSERT 
+
+--BRASIL
+INSERT INTO País values (1, 'Brasil', 3.585,  'BRL', 'América')
+INSERT INTO Capital values ('Brasilia', 1)
+INSERT INTO Populacao values (207750291, 1)
+INSERT INTO IDH values (0.754, 1)
+INSERT INTO IndiceGini values (53.4, 1)
+
+--ESTADOS UNIDOS
+INSERT INTO País values (2, 'Estados Unidos', 22.675, 'USD', 'América')
+INSERT INTO Capital values ('Washington, DC', 2)
+INSERT INTO Populacao values (331893175, 2)
+INSERT INTO IDH values (0.926, 2)
+INSERT INTO IndiceGini values (39, 2)
+
+--ARGENTINA
+INSERT INTO País values (3, 'Argentina', 1.207,  'ARS', 'América')
+INSERT INTO Capital values ('Buenos Aires', 3)
+INSERT INTO Populacao values (47327407, 3)
+INSERT INTO IDH values (0.842, 3)
+INSERT INTO IndiceGini values (42.3, 3)
+
+--PORTUGAL
+INSERT INTO País values (4, 'Portugal', 0.406,  'EUR', 'Europa')
+INSERT INTO Capital values ('Lisboa', 4)
+INSERT INTO Populacao values (10343066, 4)
+INSERT INTO IDH values (0.866, 4)
+INSERT INTO IndiceGini values (31.9, 4)
+
+--CHINA
+INSERT INTO País values (5, 'China', 18.463,  'RMB', 'Ásia')
+INSERT INTO Capital values ('Pequim', 5)
+INSERT INTO Populacao values (1397897720, 5)
+INSERT INTO IDH values (0.768, 5)
+INSERT INTO IndiceGini values (46.7, 5)
+
+--JAPÃO
+INSERT INTO País values (6, 'Japão', 4.123,  'JPY', 'Ásia')
+INSERT INTO Capital values ('Tóquio', 6)
+INSERT INTO Populacao values (126440000, 6)
+INSERT INTO IDH values (0.919, 6)
+INSERT INTO IndiceGini values (37.6, 6)
+
+--ALEMANHA
+INSERT INTO País values (7, 'Alemanha', 4.139, 'EUR', 'Europa')
+INSERT INTO Capital values ('Berlim', 7)
+INSERT INTO Populacao values (83166711, 7)
+INSERT INTO IDH values (0.947, 7)
+INSERT INTO IndiceGini values (31.9, 7)
+
+--EGITO
+INSERT INTO País values (8, 'Egito', 0.218, 'EGP', 'África')
+INSERT INTO Capital values ('Cairo', 8)
+INSERT INTO Populacao values (92798900, 8)
+INSERT INTO IDH values (0.731, 8)
+INSERT INTO IndiceGini values (31.8, 8)
+
+--MONGÓLIA
+INSERT INTO País values (9, 'Mongólia', 0.047, 'MNT', 'Ásia')
+INSERT INTO Capital values ('Ulan Bator', 9)
+INSERT INTO Populacao values (3238479, 9)
+INSERT INTO IDH values (0.739, 9)
+INSERT INTO IndiceGini values (42.9, 9)
+
+--MADAGASCAR
+INSERT INTO País values (10, 'Madagascar', 0.046, 'MGA', 'África')
+INSERT INTO Capital values ('Antananarivo', 10)
+INSERT INTO Populacao values (28427328, 10)
+INSERT INTO IDH values (0.501, 10)
+INSERT INTO IndiceGini values (47.5, 10)
+
+--NAMÍBIA
+INSERT INTO País values (11, 'Namíbia', 0.026, 'NAD', 'África')
+INSERT INTO Capital values ('Vinduque', 11)
+INSERT INTO Populacao values (2484780, 11)
+INSERT INTO IDH values (0.615, 11)
+INSERT INTO IndiceGini values (70.0, 11)
+
+--COSTA RICA
+INSERT INTO País values (12, 'Costa Rica', 0.065, 'CRC', 'América')
+INSERT INTO Capital values ('San José', 12)
+INSERT INTO Populacao values (4868148, 12)
+INSERT INTO IDH values (0.809, 12)
+INSERT INTO IndiceGini values (50.2, 12)
+
+--CANADÁ
+INSERT INTO País values (13, 'Canadá', 1.600, 'CAD', 'América')
+INSERT INTO Capital values ('Ottawa', 13)
+INSERT INTO Populacao values (38005238, 13)
+INSERT INTO IDH values (0.936, 13)
+INSERT INTO IndiceGini values (31.0, 13)
+
+--ITÁLIA
+INSERT INTO País values (14, 'Itália', 2.261, 'EUR', 'Europa')
+INSERT INTO Capital values ('Roma', 14)
+INSERT INTO Populacao values (59030133, 14)
+INSERT INTO IDH values (0.883, 14)
+INSERT INTO IndiceGini values (32.0, 14)
+
+--REPÚBLICA DO CONGO
+INSERT INTO País values (15, 'República do Congo', 0.034, 'CPA', 'África')
+INSERT INTO Capital values ('Brazavile', 15)
+INSERT INTO Populacao values (5125821, 15)
+INSERT INTO IDH values (0.571, 15)
+INSERT INTO IndiceGini values (42.1, 15)
+
+--SEICHELES
+INSERT INTO País values (16, 'Seicheles', 0.003, 'SCR', 'África')
+INSERT INTO Capital values ('Vitória', 16)
+INSERT INTO Populacao values (99545, 16)
+INSERT INTO IDH values (0.785, 16)
+INSERT INTO IndiceGini values (32.1, 16)
+
+--AUSTRÁLIA
+INSERT INTO País values (17, 'Austrália', 1.500, 'AUD', 'Oceania')
+INSERT INTO Capital values ('Camberra', 17)
+INSERT INTO Populacao values (25080200, 17)
+INSERT INTO IDH values (0.951, 17)
+INSERT INTO IndiceGini values (44.9, 17)
+
+--NOVA ZELÂNDIA
+INSERT INTO País values (18, 'Nova Zelândia', 0.221,  'NZD', 'Oceania')
+INSERT INTO Capital values ('Wellington', 18)
+INSERT INTO Populacao values (4908420, 18)
+INSERT INTO IDH values (0.937, 18)
+INSERT INTO IndiceGini values (36.2, 18)
+
+--INDONÉSIA
+INSERT INTO País values (19, 'Indonésia', 4.398, 'IDR', 'Ásia')
+INSERT INTO Capital values ('Jacarta', 19)
+INSERT INTO Populacao values (277749853, 19)
+INSERT INTO IDH values (0.705, 19)
+INSERT INTO IndiceGini values (36.3, 19)
+
+--INDIA
+INSERT INTO País values (20, 'India', 3.050,  'INR', 'Ásia')
+INSERT INTO Capital values ('Nova Deli' , 20)
+INSERT INTO Populacao values (1428627683, 20)
+INSERT INTO IDH values (0.633, 20)
+INSERT INTO IndiceGini values (35.7, 20);
+
+/*EXERCÍCIOS*/
+
+/*3 QUESTÃO
+
+4 CONSULTAS COMPLEXAS*/
+
+--A) JOIN: Selecione informações de países que tenham o IDH maior que 0.8 e ordene pelo IDH.
+select p.nome_pais, pop.populacao, id.idh, c.nome_capital, ind.indiceGini
+from País p
+	Join Populacao pop on p.id_pais = pop.fk_pais
+	Join IDH id on pop.fk_pais = id.fk_pais
+	Join  Capital c on id.fk_pais = c.fk_pais
+	Join  IndiceGini ind on c.fk_pais = ind.fk_pais
+	where idh > 0.8
+	order by idh DESC;
+
+--B)JOIN: Apresente o nome país, seu idh e o nome da capital do pais em que a capital é brasilia e seu indice gini é 53.4
+select p.nome_pais, id.idh, c.nome_capital 
+from País p 
+inner join Capital c on p.id_pais = c.fk_pais 
+inner join IndiceGini ig on p.id_pais = ig.fk_pais 
+inner join IDH id on p.id_pais = id.fk_pais 
+where c.nome_capital = 'Brasilia'
+and ig.indiceGini = 53.4
+
+--C)JOIN: Realizar um left join entre as tabelas País, IDH e IndiceGini a partir do IDH e listar a partir do IDH em ordem decrescente.
+SELECT P.id_pais, P.nome_pais, I.idh, G.indiceGini
+FROM País P
+LEFT JOIN IDH I ON P.id_pais = I.fk_pais
+LEFT JOIN IndiceGini G ON P.id_pais = G.fk_pais
+ORDER BY I.idh DESC
+
+--D) CONSULTA ANINHADA: Realizar uma consulta aninhada, buscando na tabela Capital somente a ID e o Nome dos países cujo PIB seja maior que 1 trilhão de dólares.
+select id_capital as 'Código Capital', nome_capital as 'Capital' from Capital where fk_pais in (select id_pais from País where pib_tri > 1.000);
+
+/*4 QUESTÃO*/
+
+--A) VIEW: Criar uma View, mostrando quais os países, capitais e população com IDH alto (IDH > 0.08).
+CREATE VIEW View_IDHAlto (nome_pais, nome_capital, populacao, idh) as
+SELECT P.nome_pais, C.nome_capital, Pop.populacao, I.idh from País as P
+   inner join Capital as C on P.id_pais = C.fk_pais
+   inner join Populacao as Pop on P.id_pais = Pop.fk_pais
+   inner join IDH as I on P.id_pais = I.fk_pais
+   where I.idh > 0.6;
+
+--visualizar a view
+SELECT * FROM View_IDHAlto;
+
+--B)FUNCTION: Criar uma function que some os valores de população dos países com IDH igual ou superior a 0.800.
+CREATE FUNCTION SumPopulacaoIDH()
+RETURNS FLOAT
+AS
+BEGIN
+    DECLARE @sumPopulacao FLOAT
+
+    SELECT @sumPopulacao = SUM(Pop.populacao)
+    FROM País P
+    INNER JOIN IDH I ON P.id_pais = I.fk_pais
+    INNER JOIN Populacao Pop ON P.id_pais = Pop.fk_pais
+    WHERE I.idh >= 0.800
+
+    RETURN @sumPopulacao
+END
+
+--Executar a function
+SELECT dbo.SumPopulacaoIDH() AS soma_populacao;
+
+--C)STORED PROCEDURES: Selecionar países de origem africana
+CREATE PROCEDURE SelecionarPaísAfricano @continente varchar(255)
+AS
+BEGIN
+SELECT * FROM País where continente = @continente
+END;
+
+--Executar a stored procedure
+EXEC dbo.SelecionarPaísAfricano @continente = 'África';
+
+/*5 QUESTÃO*/
+
+--A)TRIGGER: Não permitir adicionar 2x um mesmo país.
+CREATE TRIGGER EvitarDuplicata
+ON País
+AFTER INSERT
+AS
+    IF EXISTS ( SELECT * FROM País A
+        INNER JOIN inserted B ON B.nome_pais=A.nome_pais)
+    BEGIN
+        RAISERROR('Não é permitido adicionar um país que já existe na tabela.', 16, 1);
+    END;
+
+--Exemplo do Trigger
+INSERT INTO País values (21, 'Brasil', 3.050,  'INR', 'Ásia')
+
+
+--B)TRIGGER: Criar um trigger que impeça a inserção de valores negativos ou superiores a 1.000 na tabela IDH.
+CREATE TRIGGER CheckIDH
+ON IDH
+FOR INSERT, UPDATE
+AS
+BEGIN
+    IF EXISTS (
+        SELECT *
+        FROM inserted
+        WHERE idh > 1.000 OR idh < 0.000
+    )
+    BEGIN
+        RAISERROR ('O valor de IDH deve estar entre 0.000 e 1.000.', 16, 1)
+        ROLLBACK TRANSACTION
+    END
+END
+
+--Exemplo do trigger
+INSERT INTO IDH values (-50, 16)
+
+--C)TRIGGER: Fazer uma trigger que não permite adicionar indice de gini maior que 100 e valores negativos.
+CREATE TRIGGER CheckIndiceGini
+ON IndiceGini
+FOR INSERT, UPDATE
+AS
+BEGIN
+    IF EXISTS (
+        SELECT *
+        FROM inserted
+        WHERE indicegini > 1 OR indicegini < 0
+    )
+    BEGIN
+        RAISERROR ('O valor do índice de Gini deve estar entre 0 e 100.', 16, 1) --Nível de severidade 16 (Indica erros gerais que podem ser corrigidos pelo usuário.), Estado 1
+        ROLLBACK TRANSACTION
+    END
+END
+
+--exemplo do trigger
+INSERT INTO IndiceGini values (-5, 16)
