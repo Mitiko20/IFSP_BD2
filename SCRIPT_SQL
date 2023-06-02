@@ -216,8 +216,8 @@ select id_capital as 'Código Capital', nome_capital as 'Capital' from Capital w
 
 /*4 QUESTÃO*/
 
---A) VIEW: Criar uma View, mostrando quais os países, capitais e população com IDH alto (IDH > 0.08).
-CREATE VIEW View_IDHAlto (nome_pais, nome_capital, populacao, idh) as
+--A) VIEW: Criar uma View, mostrando quais os países, capitais e população com IDH Medio (IDH > 0.6).
+CREATE VIEW View_IDHMedio (nome_pais, nome_capital, populacao, idh) as
 SELECT P.nome_pais, C.nome_capital, Pop.populacao, I.idh from País as P
    inner join Capital as C on P.id_pais = C.fk_pais
    inner join Populacao as Pop on P.id_pais = Pop.fk_pais
@@ -225,7 +225,7 @@ SELECT P.nome_pais, C.nome_capital, Pop.populacao, I.idh from País as P
    where I.idh > 0.6;
 
 --visualizar a view
-SELECT * FROM View_IDHAlto;
+SELECT * FROM View_IDHMedio;
 
 --B)FUNCTION: Criar uma function que some os valores de população dos países com IDH igual ou superior a 0.800.
 CREATE FUNCTION SumPopulacaoIDH()
