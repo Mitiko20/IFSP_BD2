@@ -302,7 +302,7 @@ BEGIN
     IF EXISTS (
         SELECT *
         FROM inserted
-        WHERE indicegini > 1 OR indicegini < 0
+        WHERE indicegini > 100 OR indicegini < 0
     )
     BEGIN
         RAISERROR ('O valor do índice de Gini deve estar entre 0 e 100.', 16, 1) --Nível de severidade 16 (Indica erros gerais que podem ser corrigidos pelo usuário.), Estado 1
